@@ -74,6 +74,19 @@
      color: #f20000;
  }
 
+ .small-occupation .btn {
+     font-size: 16px;
+     margin-top: 30px;
+     padding: 10px 15px;
+     border: 1px solid #3340ff;
+     background-color: transparent;
+     color: #3340ff;
+     font-weight: 500;
+ }
+
+ .small-occupation .btn:hover {
+     background-color: #82808012;
+ }
 
  .col,
  .col-1,
