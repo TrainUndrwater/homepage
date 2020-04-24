@@ -1,9 +1,13 @@
  body {
      margin: 25px 0;
-     font-family: 'Noto Sans', sans-serif;
+     font-family: 'Open Sans', sans-serif;
      height: 100vh;
-     color: #FFF;
      font-size: 14px;
+     color: #333;
+ }
+
+ .navbar-light .navbar-nav .nav-link:hover {
+     color: rgba(0, 0, 0, 0.41);
  }
 
  a.btn {
@@ -24,13 +28,13 @@
 
  .navbar {
      padding: 5px 15px;
+     border-bottom: 1px solid #C0C2C457;
  }
 
  .navbar-brand {
      font-size: 26px;
      font-weight: bold;
      letter-spacing: -1.5px;
-     color: #333;
  }
 
  .nav-contact {
@@ -42,18 +46,32 @@
      color: #333;
  }
 
- .row-about {
-  
+ .large-occupation {
+     color: #000;
+     font-size: 100px;
+     font-weight: 700;
+     letter-spacing: -1.5px;
+     line-height: 103%;
  }
 
- .row-about::after {
-     height: 3px;
-     width: 262px;
+ /* .large-occupation::after {
+     height: 6px;
+     width: 460px;
      background-color: red;
-     position: relative;
+     position: absolute;
      content: "";
-     top: 28px;
-     left: -51px;
+     bottom: -10px;
+     left: -3px;
+ }*/
+
+ .small-occupation {
+     font-size: 22px;
+     color: #333;
+     margin-top: 30px;
+ }
+
+ .small-occupation a {
+     color: #f20000;
  }
 
 
