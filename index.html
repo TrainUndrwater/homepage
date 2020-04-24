@@ -1,53 +1,41 @@
 <html>
-    <head>
-        <!-- Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-            <!-- Bootstrap -->
-            <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
-                <style>
-                    body{
-                        margin: 25px 0;
-                        font-family: 'Noto Sans', sans-serif;
-                        background-color: #F8F6FB;
-                        height: 100vh;
-                        color: #2e2f3e;
-                    }
-                    .nav{}
-                    .nav-title{
-                        font-size: 57px;
-                        font-weight: bold;
-                        letter-spacing: -3px;
-                        line-height: 60px;
-                    }
-                    .nav-contact, .nav-contact a{
-                        text-align: right;
-                        height: 100vh;
-                        color: #2e2f3e;
-                </style>
-            </link>
-        </link>
-    </head>
-    <body>
+
+<head>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    </link>
+    <!-- Bootstrap -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+    </link>
+    <!-- Core CSS -->
+    <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-8">
-                    <div class="nav-title">
-                        Christian Bingham.
-                    </div>
-                </div>
-                <div class="col-4 nav-contact">
-                    <div class="col-12">
-                        <a href="mailto:Christian.Bingham@gmail.com">
-                            Christian.Bingham@gmail.com
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="https://www.linkedin.com/in/chbingham/">
-                            Linkedin
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="col-8">
+                <a class="navbar-brand" href="#">Christian Bingham.</a></div>
         </div>
-    </body>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item nav-contact">
+                    <a class="nav-link" href="https://www.linkedin.com/in/chbingham/">Linkedin</a>
+                </li>
+                <li class="nav-item nav-contact">
+                    <a type="button" href="mailto:Christian.Bingham@gmail.com" class="btn btn-sm btn-outline-secondary">Email Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="padding-top:70px;">
+        <div class="row row-about">
+            About Me
+        </div>
+    </div>
+</body>
+
 </html>
