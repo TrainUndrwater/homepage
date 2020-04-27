@@ -6,6 +6,12 @@
      color: #333;
  }
 
+ input {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+ }
+
  .navbar-light .navbar-nav .nav-link:hover {
      color: rgba(0, 0, 0, 0.41);
  }
@@ -91,6 +97,10 @@
 
  /*Mobile */
  @media (max-width: 575.98px) {
+     .navbar {
+         padding: 5px 15px 5px 0;
+     }
+
      .navbar-expand-lg {
          box-shadow: 0 0 3px 1px #e8e8e8;
      }
