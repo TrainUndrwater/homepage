@@ -116,6 +116,7 @@
      min-height: 300px;
      padding: 30px 0 50px;
      background: #f5f9fb;
+     margin: 100px 0 0;
  }
 
 
@@ -124,7 +125,6 @@
      padding: 60px 40px;
      margin: 0 -70px;
      border-radius: 10px;
-     transition: all 0.4s ease-in-out;
      box-shadow: 0 4px 6px rgba(60, 60, 60, 0.16), 0 10px 20px rgba(0, 0, 0, .05);
      background-color: #fff;
  }
@@ -202,7 +202,26 @@
          text-align: center;
      }
 
+     .content-section {
+         padding: 30px 0 0;
+         margin: 60px 0 0;
+     }
+
      .large-occupation {
          font-size: 65px;
+     }
+
+     .project-card {
+         padding: 30px 10px;
+         margin: -15px;
+         border-radius: 0;
+         box-shadow: none;
+         background-color: #fff;
+     }
+
+     .project-card .carousel {
+         height: 390px;
+         margin: 40px -10px;
+
      }
  }
