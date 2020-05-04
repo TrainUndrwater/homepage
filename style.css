@@ -74,6 +74,7 @@
 
  .small-occupation a {
      color: #f20000;
+     font-weight: 600;
  }
 
  .small-occupation.btn {
