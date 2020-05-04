@@ -34,7 +34,7 @@
  }
 
  .navbar {
-     background: #FFF;
+     background: rgba(255, 255, 255, 0.97);
      padding: 5px 15px;
      border-bottom: 1px solid #C0C2C457;
  }
@@ -91,11 +91,43 @@
      background-color: #82808012;
  }
 
+ .large-header {
+     color: #000;
+     font-size: 60px;
+     font-weight: 800;
+     letter-spacing: -1.5px;
+     line-height: 103%;
+ }
+
+ .small-header {
+     font-size: 18px;
+     color: #7b7f83;
+     margin: 25px 0 10px 0;
+ }
+
+ .content-section {
+     margin: 90px 0;
+     min-height: 300px;
+     padding: 25px 0;
+ }
+
  .navbar-brand {
      font-size: 22px;
      font-weight: 700;
  }
 
+ .content-section.dark {
+     color: #fff;
+     background-color: #2f3740;
+ }
+
+ .content-section.dark .small-header {
+     color: #ADB5C0;
+ }
+
+ .content-section.dark .large-header {
+     color: #FFF;
+ }
 
  /*Mobile */
  @media (max-width: 575.98px) {
