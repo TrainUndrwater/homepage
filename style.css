@@ -13,6 +13,22 @@
      appearance: none;
  }
 
+ .accelerate {
+     -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+     -ms-transform: translateZ(0);
+     -o-transform: translateZ(0);
+     transform: translateZ(0);
+ }
+
+ .nopadding {
+     padding: 0;
+ }
+
+ .animate {
+     transition: all 0.3s ease-in-out;
+ }
+
  .navbar-light .navbar-nav .nav-link:hover {
      color: rgba(0, 0, 0, 0.41);
  }
@@ -23,7 +39,7 @@
      background-color: #3340ff;
      border: none;
      margin-top: 4px;
-     transition: .3s ease;
+     transition: transform 0.3s ease-in-out;
      box-shadow: 0 1px 2px rgba(41, 52, 204, .1), 0 2px 4px rgba(41, 52, 204, .2);
  }
 
@@ -74,7 +90,8 @@
      margin-top: 30px;
  }
 
- .small-occupation a {
+ .small-occupation a,
+ .project-desc a {
      color: #f20000;
      font-weight: 600;
  }
@@ -125,8 +142,16 @@
      padding: 60px 40px;
      margin: 0 -70px;
      border-radius: 10px;
+     cursor: pointer;
+     will-change: transform, box-shadow;
+     transform-style: preserve-3d;
+     transition: all 0.4s ease-in-out;
+ }
+
+ .project-card:hover {
      box-shadow: 0 4px 6px rgba(60, 60, 60, 0.16), 0 10px 20px rgba(0, 0, 0, .05);
      background-color: #fff;
+     transform: scale(1.015);
  }
 
  .project-title {
@@ -136,6 +161,11 @@
      line-height: 103%;
      margin: 0 0 20px;
      font-weight: 800;
+     transition: color 0.4s ease-in-out;
+ }
+
+ .project-card:hover .project-title {
+     color: #3340ff;
  }
 
  .project-year {
@@ -151,6 +181,7 @@
      margin: 15px 0 0;
      color: #596873;
      line-height: 1.6;
+     padding-right: 50px;
  }
 
  .project-card .carousel {
@@ -161,9 +192,12 @@
 
  }
 
- .project-card .carousel .carousel-inner {
+ .project-card .carousel .carousel-inner,
+ .w-100,
+ .carousel-item {
      height: 100%
  }
+
 
  .navbar-brand {
      font-size: 22px;
@@ -223,5 +257,9 @@
          height: 390px;
          margin: 40px -10px;
 
+     }
+
+     .project-desc {
+         padding-right: 0;
      }
  }
