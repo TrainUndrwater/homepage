@@ -73,8 +73,7 @@
  }
 
  .content-container {
-     padding-top: 10vh;
-     min-height: 72vh;
+     padding: 5vh 15px 5vh;
  }
 
  .large-occupation {
@@ -178,7 +177,7 @@
 
  .project-desc {
      font-size: 18px;
-     margin: 15px 0 30px;
+     margin: 15px 0 45px;
      color: #596873;
      line-height: 1.6;
  }
@@ -237,8 +236,7 @@
      }
 
      .content-container {
-         padding-top: 5vh;
-         min-height: 64vh;
+         padding: 5vh 15px 5vh;
      }
 
      .content-section {
