@@ -187,7 +187,7 @@
      overflow: hidden;
      border-radius: 5px;
      box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.1);
-     max-width: 330px;
+     max-width: 300px;
      margin: 0 auto;
  }
 
@@ -233,10 +233,6 @@
 
      .nav-item {
          text-align: center;
-     }
-
-     .content-container {
-         padding: 5vh 15px 5vh;
      }
 
      .content-section {
