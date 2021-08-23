@@ -1,0 +1,181 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+<div id="app">
+    <h2>
+        Bloom Filter Test
+    </h2>
+    <h3>1. Set UserInfo</h3>
+    <p>
+        <label>
+            email:
+            <input id="email" type="text" v-model="email">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            phone_number:
+            <input id="phone_number" type="text" v-model="phone_number">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            sha256_email:
+            <input id="sha256_email" type="text" v-model="sha256_email">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            sha256_phone_number:
+            <input id="sha256_phone_number" type="text" v-model="sha256_phone_number">
+        </label>
+    </p>
+
+    <button v-if="!loaded" disabled>
+        Submit
+        <span>
+            (Pixel SDK Loading)
+        </span>
+    </button>
+
+    <button v-if="loaded" @click="updateUserInfo">
+        Submit
+    </button>
+
+    <h3>
+        2. Current UserInfo:
+    </h3>
+    <p>
+        email: {{user_info_email}}
+    </p>
+    <p>
+        phone_number: {{user_info_phone_number}}
+    </p>
+    <h3>
+        3. Trigger Event
+    </h3>
+    <p>
+        <button @click="track('ViewContent')">ttq.track('ViewContent')</button>
+    </p>
+    <p>
+        <button @click="track('AddToCart')">ttq.track('AddToCart')</button>
+    </p>
+    <p>
+        <button @click="track('Purchase')">ttq.track('Purchase')</button>
+    </p>
+</div>
+<script>
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] === variable) {
+                return pair[1];
+            }
+        }
+        return false;
+    }
+
+    const pixelUrl = getQueryVariable('host') || 'https://analytics.tiktok.com/'
+    !function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = w[t] = w[t] || [];
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) {
+            t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+        };
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.instance = function (t) {
+            for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+            return e
+        }, ttq.load = function (e, n) {
+            var i = pixelUrl + "i18n/pixel/events.js";
+            ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}, ttq._partner = ttq._partner || "LeadAds";
+            var o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.src = i + "?sdkid=" + e + "&lib=" + t;
+            var a = document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(o, a)
+        };
+
+        ttq.load('C4I1ROFM9G8R5RJ16K80');
+        ttq.page();
+    }(window, document, 'ttq');
+</script>
+<script>
+    window.app = Vue.createApp({
+        data() {
+            return {
+                email: 'wangfei.94@bytedance.com',
+                phone_number: '',
+                sha256_email: '',
+                sha256_phone_number: '',
+                user_info_email: '',
+                user_info_phone_number: '',
+                loaded: false
+            }
+        },
+        computed: {},
+        methods: {
+            updateUserInfo() {
+                if (!this.loaded) {
+                    return
+                }
+                ttq.identify({
+                    email: this.email,
+                    sha256_email: this.sha256_email,
+                    phone_number: this.phone_number,
+                    sha256_phone_number: this.sha256_phone_number,
+                })
+                setTimeout(() => {
+                    const data = ttq.context.getUserInfo()
+                    this.user_info_email = data.email
+                    this.user_info_phone_number = data.phone_number
+                    this.$forceUpdate()
+                })
+            },
+            openAM() {
+                window.ttq.instance('C4I1ROFM9G8R5RJ16K80').setAdvancedMatchingAvailableProperties({
+                    email: true,
+                    phone_number: true,
+                })
+            },
+            track(event) {
+                this.openAM()
+                ttq.track(event)
+            }
+        },
+        created() {
+            ttq.identify({
+                email: this.email,
+                sha256_email: this.sha256_email,
+                phone_number: this.phone_number,
+                sha256_phone_number: this.sha256_phone_number,
+            })
+            const t = setInterval(() => {
+                if (ttq.context && ttq.context.reportPreposition) {
+                    Promise.all(ttq.context.reportPreposition).then(item => {
+                        this.loaded = true
+                        this.$forceUpdate()
+                    })
+                    clearInterval(t)
+                }
+            }, 300)
+        }
+    }).mount('#app')
+</script>
+</body>
+</html>
