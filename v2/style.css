@@ -116,6 +116,12 @@ img { max-width: 100%; display: block; }
     flex-wrap: wrap;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .nav-list a {
     color: var(--text);
     font-weight: 500;
@@ -134,7 +140,8 @@ img { max-width: 100%; display: block; }
 }
 .btn:hover { background: var(--accent-hover); text-decoration: none; transform: translateY(-1px); }
 
-.theme-toggle {
+.theme-toggle,
+.nav-toggle {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text);
@@ -145,7 +152,9 @@ img { max-width: 100%; display: block; }
     place-items: center;
     cursor: pointer;
 }
-.theme-toggle:hover { background: var(--bg-alt); }
+.theme-toggle:hover,
+.nav-toggle:hover { background: var(--bg-alt); }
+
 .icon-sun, .icon-moon { display: none; }
 :root[data-theme="dark"] .icon-sun { display: block; }
 :root:not([data-theme="dark"]) .icon-moon { display: block; }
@@ -155,6 +164,11 @@ img { max-width: 100%; display: block; }
     :root[data-theme="light"] .icon-moon { display: block; }
     :root[data-theme="light"] .icon-sun { display: none; }
 }
+
+.nav-toggle { display: none; }
+.nav-toggle .icon-close { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-close { display: block; }
 
 /* Hero */
 .hero {
@@ -322,14 +336,32 @@ img { max-width: 100%; display: block; }
 
 /* Mobile */
 @media (max-width: 720px) {
-    .nav-list { gap: 0.75rem; font-size: 0.9rem; }
-    .nav-list li:nth-child(3) { display: none; }
+    .nav-wrap { position: relative; }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0.75rem 1rem 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+    .nav-list.is-open { display: flex; }
+    .nav-list li { padding: 0.5rem 0; }
+    .nav-list .btn { align-self: flex-start; margin-top: 0.25rem; }
+
+    .nav-controls { margin-left: auto; }
+    .nav-toggle { display: grid; }
+
     .project { grid-template-columns: 1fr; }
     .project-media { order: -1; }
-}
-
-@media (max-width: 420px) {
-    .nav-list li:nth-child(1) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
